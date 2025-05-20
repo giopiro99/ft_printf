@@ -6,12 +6,31 @@
 /*   By: gpirozzi <giovannipirozzi12345@gmail.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 11:19:57 by gpirozzi          #+#    #+#             */
-/*   Updated: 2024/12/17 12:17:58 by gpirozzi         ###   ########.fr       */
+/*   Updated: 2025/05/20 15:26:57 by gpirozzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+/**
+ * @brief Handles a single format specifier and prints the corresponding argument.
+ *
+ * Given a format specifier character pointed by `format`, retrieves the
+ * corresponding argument from `args` and prints it using the appropriate helper function.
+ *
+ * Supported format specifiers:
+ *  - %% : prints a literal '%'
+ *  - c  : prints a single character
+ *  - p  : prints a pointer address in hexadecimal
+ *  - s  : prints a string
+ *  - d/i: prints a signed decimal integer
+ *  - u  : prints an unsigned decimal integer
+ *  - x/X: prints an unsigned integer in hexadecimal (lowercase/uppercase)
+ *
+ * @param format Pointer to the format specifier character.
+ * @param args   The va_list holding the variable arguments.
+ * @return int   The number of characters printed.
+ */
 static int	check_format(const char *format, va_list args)
 {
 	int	i;
@@ -34,6 +53,17 @@ static int	check_format(const char *format, va_list args)
 	return (i);
 }
 
+/**
+ * @brief A simplified printf implementation.
+ *
+ * Parses the format string and prints characters or formatted arguments
+ * according to the format specifiers. Supports basic specifiers: %c, %s, %p,
+ * %d, %i, %u, %x, %X, and %%.
+ *
+ * @param format The format string.
+ * @param ...    Variable arguments corresponding to the format specifiers.
+ * @return int   The total number of characters printed.
+ */
 int	ft_printf(const char *format, ...)
 {
 	int		count;
@@ -58,7 +88,7 @@ int	ft_printf(const char *format, ...)
 	return (count);
 }
 
-int	main()
+/* int	main()
 {
 	("%c", 'c');
-}
+} */

@@ -6,12 +6,22 @@
 /*   By: gpirozzi <giovannipirozzi12345@gmail.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 12:41:12 by gpirozzi          #+#    #+#             */
-/*   Updated: 2024/12/02 15:12:02 by gpirozzi         ###   ########.fr       */
+/*   Updated: 2025/05/20 15:28:17 by gpirozzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+/**
+ * @brief Prints an integer number to the standard output.
+ *
+ * Handles negative numbers by printing the minus sign,
+ * and recursively prints each digit of the number.
+ * Special case for the minimum 32-bit integer (-2147483648).
+ *
+ * @param n The integer to print.
+ * @return int The total number of characters printed.
+ */
 int	ft_putnbr(int n)
 {
 	int	i;
